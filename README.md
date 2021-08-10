@@ -22,7 +22,7 @@ The messages will start going to those whatsapp numbers present in test_phone.xl
 
 ## Important points
 1. Make sure the folder is present in the D drive.
-2. You can make changes in test_contacts.xlsx and run the script again if you want to send messages to more numbers.
+2. The script uses architect_contacts.xlsx to fetch contacts. Therefore, make necessary changes in that file before executing. 
 3. Do not click anywhere on the window where whatsapp web is running. However it can run in the background. You can check the whatsapp on phone to check whether the messages are being sent correctly or not.
 
 ## Developer
