@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[8]:
+# In[11]:
 
 
 from selenium import webdriver
@@ -12,7 +12,7 @@ import pandas as pd
 from selenium.common.exceptions import NoSuchElementException        
 
 
-# In[9]:
+# In[12]:
 
 
 pathInv = 'architect_contacts.xlsx'
@@ -26,7 +26,7 @@ for i in ph_num:
 print("Total = " + str(total))
 
 
-# In[10]:
+# In[13]:
 
 
 def check_exists_by_xpath(xpath):
@@ -37,7 +37,7 @@ def check_exists_by_xpath(xpath):
     return True
 
 
-# In[11]:
+# In[14]:
 
 
 driver = webdriver.Chrome('D:\\resinfinity_architect\\chromedriver\\chromedriver.exe')
@@ -49,12 +49,12 @@ if(val == 'n'):
     inp = input("Press enter to exit.")
     exit()
 else:
-    if(check_exists_by_xpath('//*[@id="app"]/div[1]/div[1]/div[4]/div/div/div[2]/h1') == False):
+    if(check_exists_by_xpath('//*[@id="side"]/header/div[2]/div/span/div[3]/div/span') == False):
         inp = input("[-] Error: It appears that you have not logged in. Press enter to exit.")
         exit()
 
 
-# In[12]:
+# In[15]:
 
 
 ctr = 0
@@ -70,7 +70,7 @@ for i in ph_num:
     next = True
     print("[-] " + str(i) + " " + name[ctr] + " : Initiating Connection.")
     while(True):
-        if(check_exists_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')):
+        if(check_exists_by_xpath('//*[@id="main"]/footer/div[1]/div/div/div[2]/div[1]/div/div[2]')):
             break
         if(check_exists_by_xpath('//*[ text() = "Phone number shared via url is invalid." ]')):
             print("[-] " + str(i) + " " + name[ctr] + " : Error: number does not exist.")
@@ -85,9 +85,9 @@ for i in ph_num:
         attachment_section = driver.find_element_by_xpath('//div[@title = "Attach"]')
         attachment_section.click()
         while(True):
-            if(check_exists_by_xpath('//*[@id="main"]/footer/div[1]/div[1]/div[2]/div/span/div[1]/div/ul/li[1]/button/input')):
+            if(check_exists_by_xpath('//*[@id="main"]/footer/div[1]/div/div/div[1]/div[2]/div/span/div[1]/div/ul/li[1]/button/input')):
                 break
-        image_box = driver.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div[1]/div[2]/div/span/div[1]/div/ul/li[1]/button/input')
+        image_box = driver.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div/div/div[1]/div[2]/div/span/div[1]/div/ul/li[1]/button/input')
         image_box.send_keys(file_path)
         while(True):
             if(check_exists_by_xpath('//*[@id="app"]/div[1]/div[1]/div[2]/div[2]/span/div[1]/span/div[1]/div/div[2]/div/div[1]/div[3]/div/div/div[2]/div[1]/div[2]')):
@@ -287,9 +287,9 @@ for i in ph_num:
         attachment_section = driver.find_element_by_xpath('//div[@title = "Attach"]')
         attachment_section.click()
         while(True):
-            if(check_exists_by_xpath('//*[@id="main"]/footer/div[1]/div[1]/div[2]/div/span/div[1]/div/ul/li[3]/button/input')):
+            if(check_exists_by_xpath('//*[@id="main"]/footer/div[1]/div/div/div[1]/div[2]/div/span/div[1]/div/ul/li[3]/button/input')):
                 break
-        file_box = driver.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div[1]/div[2]/div/span/div[1]/div/ul/li[3]/button/input')
+        file_box = driver.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div/div/div[1]/div[2]/div/span/div[1]/div/ul/li[3]/button/input')
         file_box.send_keys(brochure_path)
 
         while(True):
@@ -311,9 +311,9 @@ for i in ph_num:
         send_btn.click()
 
         while(True):
-            if(check_exists_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[1]/div/div[2]')):
+            if(check_exists_by_xpath('//*[@id="main"]/footer/div[1]/div/div/div[2]/div[1]/div/div[2]')):
                 break
-        msg_box2 = driver.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[1]/div/div[2]')
+        msg_box2 = driver.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div/div/div[2]/div[1]/div/div[2]')
         msg = "Request you to please go through the same. Also, suggest suitable time for further discussion so that we can *show you some of our designs in person*. Please reach out to us if any additional information is required."
         msg_box2.send_keys(msg)
         msg_box2.send_keys(Keys.COMMAND, Keys.SHIFT, Keys.ENTER)
@@ -343,7 +343,7 @@ for i in ph_num:
         msg_box2.send_keys(Keys.ENTER)
 
         while(True):
-            if(check_exists_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[1]/div/div[2]')):
+            if(check_exists_by_xpath('//*[@id="main"]/footer/div[1]/div/div/div[2]/div[1]/div/div[2]')):
                 break
         msg = "Please find our creations on social media accounts for further references."
         msg_box2.send_keys(msg)
